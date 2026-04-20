@@ -1,46 +1,17 @@
-# ![CI logo](https://codeinstitute.s3.amazonaws.com/fullstack/ci_logo_small.png)
 
-## Template Instructions
+# Heritage Housing Issues - Data Analytics Milestone Project
 
-Welcome,
 
-This is the Code Institute student template for the Heritage Housing project option in Predictive Analytics. We have preinstalled all of the tools you need to get started. It's perfectly ok to use this template as the basis for your project submissions. Click the `Use this template` button above to get started.
+## Project Overview
 
-You can safely delete the Template Instructions section of this README.md file,  and modify the remaining paragraphs for your own project. Please do read the Template Instructions at least once, though! It contains some important information about the IDE and the extensions we use.
+Heritage Housing Issues is a milestone project for the Predictive Analytics unit of Code Institute's Diploma in Full Stack Web Development.
 
-## How to use this repo
+The purpose of this project is to build a Data App with a Machine Learning User Interface (UI) combining: (1) Python packages for Machine Learning, Data Analysis and Data Visualisations; and (2) Streamlit for fast Machine Learning prototyping. This project allows the user to perform critical data analysis to generate useful insights, and deliver data-driven recommendations.
 
-1. Use this template to create your GitHub project repo
-
-2. In your new repo click on the green Code button
-
-3. Then, from the Codespaces tab, click Create codespace on main.
-
-5. Wait for the workspace to open. This can take a few minutes.
-
-6. Open a new terminal and `pip3 install -r requirements.txt`
-
-7. Open the jupyter_notebooks directory and click on the notebook you want to open.
-
-8. Click the kernel button and choose Python Environments.
-
-Note that the kernel says Python 3.12.1 as it inherits from the workspace so it will be Python-3.12.1 as installed by Codespaces. To confirm this you can use `! python --version` in a notebook code cell.
-
-## Cloud IDE Reminders
-
-To log into the Heroku toolbelt CLI:
-
-1. Log in to your Heroku account and go to *Account Settings* in the menu under your avatar.
-2. Scroll down to the *API Key* and click *Reveal*
-3. Copy the key
-4. In your Cloud IDE, from the terminal, run `heroku_config`
-5. Paste in your API key when asked
-
-You can now use the `heroku` CLI program - try running `heroku apps` to confirm it works. This API key is unique and private to you so do not share it. If you accidentally make it public then you can create a new one with *Regenerate API Key*.
 
 ## Dataset Content
 
-* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). We then created a fictitious user story where predictive analytics can be applied in a real project in the workplace.
+* The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data). 
 * The dataset has almost 1.5 thousand rows and represents housing records from Ames, Iowa, indicating house profile (Floor Area, Basement, Garage, Kitchen, Lot, Porch, Wood Deck, Year Built) and its respective sale price for houses built between 1872 and 2010.
 
 |Variable|Meaning|Units|
@@ -76,25 +47,144 @@ As a good friend, you are requested by your friend, who has received an inherita
 
 Although your friend has an excellent understanding of property prices in her own state and residential area, she fears that basing her estimates for property worth on her current knowledge might lead to inaccurate appraisals. What makes a house desirable and valuable where she comes from might not be the same in Ames, Iowa. She found a public dataset with house prices for Ames, Iowa, and will provide you with that.
 
-* 1 - The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
-* 2 - The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
+### Business Requirement 1 (BR1)
+The client is interested in discovering how the house attributes correlate with the sale price. Therefore, the client expects data visualisations of the correlated variables against the sale price to show that.
 
-## Hypothesis and how to validate?
+### Business Requirement 2 (BR2)
+The client is interested in predicting the house sale price from her four inherited houses and any other house in Ames, Iowa.
 
-* List here your project hypothesis(es) and how you envision validating it (them).
+## Hypotheses and Validation
 
-## The rationale to map the business requirements to the Data Visualisations and ML tasks
+### Hypothesis 1 - House attributes correlate with Sale Price
 
-* List your business requirements and a rationale to map them to the Data Visualisations and ML tasks.
+**Statement**
+Certain attributes are expected to show a measurable positive correlation with Sale Price.
+
+**Validation Approach**
+-   Compute Pearson and Spearman correlation coefficients between all house attributes and Sale Price.
+-   Produce a correlation heatmap to identify the strongest relationships at a glance.
+-   Generate scatter plots of the highest-correlated continuous variables against Sale Price.
+- Hypothesis is confirmed if key attributes show a statistically significant correlation with Sale Price.
+
+### Hypothesis 2 - House attributes can be used to predict Sale Price
+
+**Statement**
+A machine learning regression model trained on the Ames housing dataset will accurately predict Sale Price, using the most correlated features as inputs.
+
+**Validation Approach**
+-   Select features based on findings from Hypothesis 1 correlation analysis.
+-   Split the Ames dataset into training and test sets to evaluate model generalisation
+-   Train and compare regression models.
+-   Evaluate model performance using R² (target ≥ 0.75) and RMSE as primary metrics.
+-   Apply the final model to predict Sale Price for the four inherited properties.
+-   Hypothesis is confirmed if the model achieves the R² target on unseen test data, demonstrating reliable predictive power beyond a simple baseline mean estimate.
+
+
+## Rationales to map the business requirements to the Data Visualisations and ML tasks
+
+### Business Requirement 1 — Correlation & Visualisation
+
+**Requirement:** The client wants to understand how house attributes correlate with Sale Price in Ames, Iowa, presented through data visualisations.
+
+**Rationale:** The client has strong property knowledge in her home region but lacks familiarity with the Ames, Iowa market. Visualising which attributes most strongly drive Sale Price in this specific dataset allows her to make informed, evidence-based decisions about how to present and position her inherited properties for sale, rather than relying on assumptions from another market.
+
+
+| CRISP-DM Phase | Tasks |
+|---|---|
+| **Business Understanding** | Define correlation analysis and data visualisation as the goal for BR1. |
+| **Data Understanding** | Collect data, and explore distributions and relationships between house attributes and Sale Price. |
+| **Data Preparation** | Clean, encode and normalise data as necessary. |
+| **Evaluation** | Confirm Hypothesis 1 via statistically significant correlation coefficients. |
+| **Deployment** | Present correlation heatmaps and scatter plots to the client as visual deliverables. |
+
+### Business Requirement 2 - Sale Price prediction
+
+**Requirement:** The client wants to predict the sale price of her four inherited properties and any other house in Ames, Iowa.
+
+**Rationale:** Correlation analysis identifies relationships but cannot produce a price estimate. A trained regression model provides an objective, data-driven prediction, giving the client a reliable basis for pricing decisions. 
+
+| CRISP-DM Phase | Task |
+|---|---|
+| **Business Understanding** | Define Sale Price prediction as the analytical goal for BR2. |
+| **Data Understanding** | Identify most correlated features from BR1 to inform feature selection. |
+| **Data Preparation** | Handle missing values, encode categorical variables, engineer features as required. |
+| **Modelling** | Train and compare regression models (e.g. Linear Regression, Random Forest, Gradient Boosting) |
+| **Evaluation** | Assess model performance using R² (target ≥ 0.75) and RMSE on unseen test data; confirm Hypothesis 2 |
+| **Deployment** | Apply final model to predict Sale Price for the four inherited properties and deliver an interactive prediction interface |
+
 
 ## ML Business Case
 
-* In the previous bullet, you potentially visualised an ML task to answer a business requirement. You should frame the business case using the method we covered in the course.
+### Predict house Sale Price
 
-## Dashboard Design
+**Regression Model**
 
-* List all dashboard pages and their content, either blocks of information or widgets, like buttons, checkboxes, images, or any other items that your dashboard library supports.
-* Eventually, during the project development, you may revisit your dashboard plan to update a given feature (for example, at the beginning of the project you were confident you would use a given plot to display an insight but eventually you needed to use another plot type)
+-   We want an ML model to predict the Sale Price of residential properties in Ames, Iowa, based on historical house sale data. The target variable is continuous and numerical. We consider a regression model. It is a supervised model with a single continuous output: the predicted Sale Price in US dollars.
+    
+-   Our ideal outcome is to provide the client with a reliable, data-driven predicted Sale Price for each of her four inherited properties.
+    
+-   The model success metrics are:
+    
+    -   At least R² of 0.75 on both train and test sets
+    -   The ML model is considered a failure if:
+        -   R² falls below 0.75 on the test set, indicating the model does not generalise reliably to unseen Ames properties
+        -   RMSE is disproportionately large relative to the Sale Price range ($34,900 — $755,000), suggesting predictions are too imprecise to be actionable
+-   The model output is defined as a predicted Sale Price in US dollars for any given property in Ames, Iowa. The client will input house attributes via an interactive interface (Streamlit dashboard) and receive a predicted Sale Price on the fly (not in batches). The four inherited properties will be predicted as a batch at the point of delivery.
+    
+-   Heuristics: Currently, the client has no approach to estimate Sale Price in Ames, Iowa.
+    
+-   The training data to fit the model comes from the Ames Housing Dataset, which contains approximately 1,500 house sale records.
+    
+    -   Train data — target: SalePrice; features: all correlated house attributes identified in BR1 correlation analysis, excluding unique identifiers and variables with excessive missing values
+
+## Dashboard Design (Streamlit App User Interface)
+
+### Page 1: Quick project summary
+
+-   This page will provide a quick project summary:
+    -   Project Terms & Jargon
+    -   Describe Project Dataset, including a link to the dataset source
+    -   State Business Requirements
+
+### Page 2: Correlation Study and Visualisation
+
+- This page will answer business requirement 1:
+	- State BR1
+	- Checkbox: data inspection on house attributes and sale value, (display the number of rows and columns in the data, and display the first ten rows of the data)
+	-  Display the most correlated variables to sale price and the conclusions
+	- Checkbox: Heatmap of sale price and related variables.
+	- Checkbox: Scatter plots of sale price and related variables.
+
+### Page 3: House Sale Price Predictor
+
+- This page will answer business requirement 2:
+	- State BR2
+	- Inherited properties predictions:
+		-   Display a table of the four inherited properties with their attributes
+		-   Display the predicted Sale Price for each inherited property
+		-   Display the total combined predicted Sale Price for all four properties
+	- Interactive house Sale Price predictor:
+		- Set of widgets inputs relating to house attributes. Each set of inputs is related to a given ML task to predict sale price.
+		- Display predicted house sale price
+
+### Page 4: Project Hypothesis and Validation
+
+- Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
+
+	- 1 - House attributes correlate with Sale Price
+		-  to be confirmed. Validation TBC.
+	- 2 - House attributes can be used to predict Sale Price
+		- to be confirmed. Validation TBC.
+
+### Page 5: ML Model Performance
+
+- Data preparation notes
+-   Considerations and conclusions after the pipeline is trained
+-   Present ML pipeline steps
+-   Feature importance
+- Model performance: R² and RMSE on train and test sets 
+- Predicted vs Actual Sale Price plot 
+-  Confirmation of whether R² ≥ 0.75 target was achieved
 
 ## Unfixed Bugs
 
