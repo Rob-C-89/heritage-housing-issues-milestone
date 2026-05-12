@@ -5,7 +5,7 @@ import joblib
 
 @st.cache_data
 def load_house_data():
-    df = pd.read_csv("inputs/datasets/raw/house-price-20211124T154130Z-001/house-price/house_prices_records.csv")
+    df = pd.read_csv("outputs/datasets/collection/house_prices")
     return df
 
 
