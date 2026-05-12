@@ -28,7 +28,7 @@ def page_summary_body():
     
     # Project source data
     st.info(
-        f"**Project Source Data**\n"
+        f"**Project Source Data**\n\n"
         f"The dataset used in this project is sourced from "
         f"[Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data) "
         f"and represents records for 1460 properties from Ames, Iowa, indicating 23 features "
