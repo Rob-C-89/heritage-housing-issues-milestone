@@ -55,12 +55,16 @@ def page_correlation_study_body():
         f"for the purposes of Machine Learning."
     )
 
-    st.write("## Data Visulisation")
+    st.write("---")
+
+    st.write("## Data Visualisation")
     
     # Heatmap
-    st.write("### Heatmap Displaying Correlation Results")
+    st.write("### Heatmap")
 
     plot_heatmap(df, spearman_corr)
+
+    st.write("---")
 
     # Checkbox: scatterplots
     st.write("### Scatter Plots")
@@ -72,6 +76,7 @@ def page_correlation_study_body():
     if st.checkbox("Display scatterplots"):
         plot_scatter(df, top_features)
 
+    st.write("---")
 
     # Checkbox: box plots
     st.write("### Box Plots")

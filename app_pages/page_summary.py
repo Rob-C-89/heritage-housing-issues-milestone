@@ -26,21 +26,14 @@ def page_summary_body():
         f"(Excellent, Good, Typical, Fair).\n"
         )
     
-    # Project source data
-    st.info(
-        f"**Project Source Data**\n\n"
-        f"The dataset used in this project is sourced from "
-        f"[Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data) "
-        f"and represents records for 1460 properties from Ames, Iowa, indicating 23 features "
-        f"for each property, and its respective sale price."
-    )
-
     # Link to README file
     st.write(
         f"* For additional information, please visit and **read** the "
         f"[Project README file](https://github.com/Rob-C-89/heritage-housing-issues-milestone)."
         )
     
+    st.write("---")
+
     # Business requirements
     st.success(
         f"The project has 2 business requirements:\n"
@@ -52,3 +45,16 @@ def page_summary_body():
         f"* 2 - The client is interested in predicting the house sale price from her "
         f"four inherited houses and any other house in Ames, Iowa."
         )
+
+    st.write("---")
+    
+    # Project source data
+    st.info(
+        f"**Project Source Data**\n\n"
+        f"The dataset used in this project is sourced from "
+        f"[Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data) "
+        f"and represents records for 1460 properties from Ames, Iowa, indicating 23 features "
+        f"for each property, and its respective sale price."
+    )
+
+

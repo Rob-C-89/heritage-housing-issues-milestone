@@ -18,7 +18,7 @@ def page_sale_price_predictor_body():
 
     # State BR2
     st.write("## Sale Price Predictor")
-    st.write("The client wants to predict the sale price of the four inherited properties and any other house in Ames, "
+    st.info("The client wants to predict the sale price of the four inherited properties and any other house in Ames, "
              "Iowa. A trained regression model provides an objective, data-driven prediction, giving the client a "
              "reliable basis for pricing decisions.")
 
@@ -35,9 +35,11 @@ def page_sale_price_predictor_body():
     )
     display_inherited_predictions(inherited_predictions)
 
+    st.write("---")
+
     # Live interface for predicting sales price
     st.write("## Predict Sales Price Interface")
-    st.info(
+    st.write(
         "Alongside the inherited properties, the client would like the ability to predict"
         "the sale price of any house in Ames, Iowa."
     )
