@@ -43,12 +43,9 @@ def page_sale_price_predictor_body():
     st.info("Input house features in the below widgets to see a predicted sale price for any given property.")
 
     X_live = draw_input_widgets()
-    
+
     if st.button("Run sales price prediction"):
-        pipeline_features = ['OverallQual', 'GrLivArea', 'KitchenQual', 
-                         'YearBuilt', 'GarageArea', '1stFlrSF', 'TotalBsmtSF']
-    
-        prediction = pipeline.predict(X_live.filter(pipeline_features))
+        prediction = pipeline.predict(X_live)
         st.write(f"Predicted Sale Price: ${prediction[0]:,.2f}")
 
 def display_inherited_predictions(inherited_predictions):
