@@ -1,4 +1,3 @@
-import plotly.express as px
 import numpy as np
 import streamlit as st
 from src.data_management import load_house_data
