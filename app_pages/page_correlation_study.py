@@ -1,6 +1,5 @@
 import plotly.express as px
 import numpy as np
-from feature_engine.discretisation import ArbitraryDiscretiser
 import streamlit as st
 from src.data_management import load_house_data
 

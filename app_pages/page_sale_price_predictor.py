@@ -1,9 +1,5 @@
-import plotly.express as px
-import numpy as np
-from feature_engine.discretisation import ArbitraryDiscretiser
 import streamlit as st
 
-import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 sns.set_style("whitegrid")
