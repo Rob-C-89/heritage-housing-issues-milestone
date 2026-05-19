@@ -66,12 +66,33 @@ def page_model_performance_body():
     st.write(
         "### Predicted vs. Actual Sale Price  \n \n"
         "After training, we parsed 20 percent of the housing data to the model, withholding the sale price. \n \n"
-        "The graph below shows the model's predicted sale price against the actual sale price on this test set." \
+        "The graph below shows the model's predicted sale price against the actual sale price on this test set."
     )
 
     st.image("outputs/plots/regression_evaluation.png")
 
     # Considerations and conclusions after the pipeline is trained (text)
+    st.write("### Considerations and Conclusions")
+    st.write(
+        "The Extra Trees Regressor was selected after comparing seven regression algorithms. \n \n"
+        "A second model was created, selecting only the top features identified in the correlation analysis."
+        "This model underperformed when compared to the first model, so it was discarded. \n \n"
+        "The selected model achieved an R2 score of 0.88 on the test set, exceeding the 0.75 target set "
+        "in the business requirements."
+    )
+
+    st.warning(
+            """
+            * The R2 result of the test set (0.880) compared to the train set (0.943) indicates slight overfitting,
+            but not enough to warrant further changes.
+
+            * The RMSE of \$30,000 is influenced by high value outliers in the dataset. The Mean Average of \$18,600
+            is more representative of a typical error in prediction value.
+
+            * We can conclude that the model performs well in the context of Business Requirement 2, providing
+            reliable sale price predictions for the inherited properties, and for any property in the Ames area.
+            """
+    )
 
 def display_pipeline_steps(pipeline):
     set_config(display='diagram')
