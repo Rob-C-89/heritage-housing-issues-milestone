@@ -171,12 +171,11 @@ This page will answer business requirement 2:
 
 ### Page 4: Project Hypothesis and Validation
 
-Before the analysis, we knew we wanted this page to describe each project hypothesis, the conclusions, and how we validated each. After the data analysis, we can report that:
+This page will state the hypotheses and validation of the project:
 
-	- 1 - House attributes correlate with Sale Price
-		-  to be confirmed. Validation TBC.
-	- 2 - House attributes can be used to predict Sale Price
-		- to be confirmed. Validation TBC.
+* State hypothesis 1 and 2.
+* State validation approach for each hyothesis.
+* Confirmation status for each hypothesis.
 
 ### Page 5: ML Model Performance
 
