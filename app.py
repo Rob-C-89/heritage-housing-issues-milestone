@@ -7,7 +7,7 @@ from app_pages.page_sale_price_predictor import page_sale_price_predictor_body
 from app_pages.page_hypothesis_validation import page_hypothesis_validation_body
 from app_pages.page_model_performance import page_model_performance_body
 
-app = MultiPage(app_name= "Housing Heritage Issues")
+app = MultiPage(app_name= "Heritage Housing Issues")
 
 app.add_page("Quick Project Summary", page_summary_body)
 app.add_page("Correlation Study", page_correlation_study_body)
