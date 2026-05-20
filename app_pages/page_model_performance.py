@@ -22,7 +22,6 @@ def page_model_performance_body():
         "* The dataset was split 80/20 into train and test sets. \n \n"
         "* Numerical variables were imputed using the median value.  \n \n"
         "* Categorical variables were imputed using the mode value, and encoded with an Ordinal Encoder.  \n \n"
-        "* Standard Scaler was used for feature scaling.  \n \n"
         "* Feature selection was performed using SelectFromModel.  \n \n"
     )
 
