@@ -212,24 +212,20 @@ This page will state the hypotheses and validation of the project:
 
 ## Main Data Analysis and Machine Learning Libraries
 
-* Here you should list the libraries you used in the project and provide example(s) of how you used these libraries.
+| Library | Version | Usage |
+| --- | --- | --- |
+| **numpy** | 1.26.1 | Array computing and mathematical functions |
+| **pandas** | 2.1.1 | Extensively used for data manipulation and analysis |
+| **matplotlib** | 3.8.0 | Plotting graphs for data visualisation |
+| **seaborn** | 0.13.2 | Correlation heatmaps, scatter and box plots |
+| **plotly** | 5.17.0 | Interactive scatterplot for data visualisation |
+| **streamlit** | 1.40.2 | Interactive dashboard for delivering project |
+| **feature-engine** | 1.6.1 | Imputation and encoding in pipelines |
+| **imbalanced-learn** | 0.11.0 | Handling imbalanced datasets |
+| **ydata-profiling** | 4.12.0 | Generating profile reports for data exploration |
+| **scikit-learn** | 1.3.1 | ML pipeline, feature selection and model evaluation |
+| **xgboost** | 1.7.6 | XGBoost regressor compared during model search |
 
 ## Credits
 
-* In this section, you need to reference where you got your content, media and extra help from. It is common practice to use code from other repositories and tutorials, however, it is important to be very specific about these sources to avoid plagiarism.
-* You can break the credits section up into Content and Media, depending on what you have included in your project.
-
-### Content
-
-* The text for the Home page was taken from Wikipedia Article A
-* Instructions on how to implement form validation on the Sign-Up page was taken from [Specific YouTube Tutorial](https://www.youtube.com/)
-* The icons in the footer were taken from [Font Awesome](https://fontawesome.com/)
-
-### Media
-
-* The photos used on the home and sign-up page are from This Open Source site
-* The images used for the gallery page were taken from this other open-source site
-
 ## Acknowledgements (optional)
-
-* In case you would like to thank the people that provided support through this project.
