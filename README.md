@@ -228,4 +228,27 @@ This page will state the hypotheses and validation of the project:
 
 ## Credits
 
+* The dataset was sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data)
+
+* The [template](https://github.com/Code-Institute-Solutions/milestone-project-heritage-housing-issues) for the repository was supplied by Code Institute.
+
+* [Code Institute's](https://codeinstitute.net/global/) Churnometer walk-through project was used in many cases for guidance and in some cases direct supply of code. These have been referenced in the source code comments and include:
+  * The template for the Jupyter notebooks.
+  * ReadMe template.
+  * In Jupyter notebook 05 - Modelling, large blocks of code were taken directly for:
+    * Custom Class for hyperparameter optimisation
+    * Assess Feature Importance
+    * Evaluate on train and test sets
+  * Class to generate multiple Streamlit pages using an object oriented approach
+
+* Code to display outliers was taken and modified from Feature Engine Unit 6 of Code Institute's Full Stack program
+
+* Claude AI by Anthropic was used for debugging and explanation of concepts.
+  
+* [Stack Edit](https://stackedit.io/) used for markdown editing and table creation.
+* The following websites were particularly helpful:
+  * [Scikit-learn](https://scikit-learn.org/)
+  * [Medium](https://medium.com)
+  * [Towards Data Science](https://towardsdatascience.com/)
+
 ## Acknowledgements (optional)
