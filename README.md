@@ -7,6 +7,12 @@ Heritage Housing Issues is a milestone project for the Predictive Analytics unit
 
 The purpose of this project is to build a Data App with a Machine Learning User Interface (UI) combining: (1) Python packages for Machine Learning, Data Analysis and Data Visualisations; and (2) Streamlit for fast Machine Learning prototyping. This project allows the user to perform critical data analysis to generate useful insights, and deliver data-driven recommendations.
 
+## Project Planning
+
+The project has been planned using Agile methodology, mapping business requirements in a user story based-format, through GitHub's project planner.
+
+Please follow this link to the [project board](https://github.com/users/Rob-C-89/projects/18).
+
 ## Dataset Content
 
 * The dataset is sourced from [Kaggle](https://www.kaggle.com/codeinstitute/housing-prices-data).
