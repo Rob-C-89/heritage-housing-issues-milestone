@@ -35,7 +35,10 @@ def page_correlation_study_body():
     st.write("### Target Visualisation")
     st.write("It is helpful to visualise the target Sales Price, to better understand the nature "
              "and distribution of this variable.\n"
-             "We see that the majority of properties sold for between 100,000 and 200,000.")
+             "We see that the majority of properties sold for between 100,000 and 200,000."
+             "We also see a number of outliers (houses with a particularly high or low "
+             "sale price, compared to the rest of the dataset)."
+             )
 
     fig, ax = plt.subplots(figsize=(10, 6))
     df.plot(kind='hist', y='SalePrice', bins=75, grid=True, title='Sale Price Distribution', ax=ax)
@@ -59,6 +62,13 @@ def page_correlation_study_body():
     
     # Heatmap
     st.write("### Heatmap")
+    st.write("The heatmap below helps to visualise the correlation between the top "
+             "features and the sale price. The darker the colour, the stronger the "
+             "correlation. \n \n"
+             "It also illustrates the correlation between the features themselves,"
+             "which is useful for understanding the dataset as a comprehensive whole."
+            )
+
 
     plot_heatmap(df, spearman_corr)
 
@@ -69,6 +79,7 @@ def page_correlation_study_body():
     st.write(
         "Scatter plots for each of the top features have been created. These diagrams illustrate the " \
         "relationship between the features and the sale price, helping to visualise the levels of correlation."
+        "We can see a clear linear relationship with many of the features and sale price."
     )
 
     if st.checkbox("Display scatterplots"):
@@ -81,6 +92,7 @@ def page_correlation_study_body():
     st.write(
         "To explore the relationship of the categorical variables with Sale Price, "
         "we have included 4 box plots."
+        "These plots are helpful for visualising the spread, or skewness, of the features."
     )
     if st.checkbox("Display box plots"):
         plot_box()
