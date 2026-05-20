@@ -74,7 +74,9 @@ def page_model_performance_body():
         "A second model was created, selecting only the top features identified in the correlation analysis."
         "This model underperformed when compared to the first model, so it was discarded. \n \n"
         "The selected model achieved an R2 score of 0.88 on the test set, exceeding the 0.75 target set "
-        "in the business requirements."
+        "in the business requirements." \
+        "We can conclude that the model has been successful in answering "
+        "the predictive task it was intended for."
     )
 
     st.warning(
