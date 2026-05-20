@@ -131,16 +131,14 @@ A machine learning regression model trained on the Ames housing dataset will acc
 * The model success metrics are:
   * At least R² of 0.75 on both train and test sets
   * The ML model is considered a failure if:
-  * R² falls below 0.75 on the test set, indicating the model does not generalise reliably to unseen Ames properties
-  * RMSE is disproportionately large relative to the Sale Price range ($34,900 — $755,000), suggesting predictions are too imprecise to be actionable
+    * R² falls below 0.75 on the test set, indicating the model does not generalise reliably to unseen Ames properties.
 
-* The model output is defined as a predicted Sale Price in US dollars for any given property in Ames, Iowa. The client will input house attributes via an interactive interface (Streamlit dashboard) and receive a predicted Sale Price on the fly (not in batches). The four inherited properties will be predicted as a batch at the point of delivery.
+* The model output is defined as a predicted Sale Price in US dollars for any given property in Ames, Iowa. The client will input house attributes via an interactive interface (Streamlit dashboard) and receive a live predicted Sale Price for a single property
+* The four inherited properties will be predicted as a batch at the point of delivery.
 
-* Heuristics: Currently, the client has no approach to estimate Sale Price in Ames, Iowa.
+* Regarding heuristics, the client currntly has no approach to estimate Sale Price in Ames, Iowa.
 
-* The training data to fit the model comes from the Ames Housing Dataset, which contains approximately 1,500 house sale records.
-
-* Train data — target: SalePrice; features: all correlated house attributes identified in BR1 correlation analysis, excluding unique identifiers and variables with excessive missing values
+* The training data to fit the model comes from the Ames Housing Dataset, which contains approximately 1,500 house sale records. The data will be inspected and cleaned, with feature engineering steps to prepare it fo the model.
 
 ## Dashboard Design (Streamlit App User Interface)
 
