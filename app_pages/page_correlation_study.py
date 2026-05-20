@@ -5,6 +5,8 @@ from src.data_management import load_house_data
 import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
+import plotly.express as px
+
 sns.set_style("whitegrid")
 
 def page_correlation_study_body():
@@ -111,11 +113,15 @@ def plot_heatmap(df, spearman_corr):
 
 def plot_scatter(df, top_features):
     for feature in top_features[1:]:
-        fig, ax = plt.subplots()
-        sns.scatterplot(data=df, x=feature, y='SalePrice')
-        ax.set_title(f'{feature} vs Sale Price')
-        st.pyplot(fig)
-
+        fig = px.scatter(
+            df,
+            x=feature,
+            y='SalePrice',
+            labels={'x': feature, 'y': 'SalePrice'},
+            title=f'{feature} vs Sale Price'
+        )
+        st.plotly_chart(fig)
+        
 def plot_box():
     categorical_features = ['BsmtFinType1', 'KitchenQual', 'GarageFinish', 'BsmtExposure']
     df = load_house_data()

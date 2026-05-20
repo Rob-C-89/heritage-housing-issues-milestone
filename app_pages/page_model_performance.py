@@ -83,7 +83,7 @@ def page_model_performance_body():
             * The R2 result of the test set (0.880) compared to the train set (0.943) indicates slight overfitting,
             but not enough to warrant further changes.
 
-            * The RMSE of \$30,000 is influenced by high value outliers in the dataset. The Mean Average of \$18,600
+            * The RMSE of \~\$30,000 is influenced by high value outliers in the dataset. The Mean Average of \~\$18,600
             is more representative of a typical error in prediction value.
 
             * We can conclude that the model performs well in the context of Business Requirement 2, providing
