@@ -9,6 +9,7 @@ from src.data_management import load_pkl_file, load_house_data
 def page_sale_price_predictor_body():
     # Load predict sale price files
     inherited_predictions = pd.read_csv(f"outputs/ml_pipeline/predict_saleprice/inherited_house_predictions.csv")
+    inherited_total = pd.read_csv(f"outputs/ml_pipeline/predict_saleprice/inherited_house_total.csv")
     pipeline = load_pkl_file("outputs/ml_pipeline/predict_saleprice/extra_trees_pipeline.pkl")
 
 
@@ -30,6 +31,10 @@ def page_sale_price_predictor_body():
         "page for more information."
     )
     display_inherited_predictions(inherited_predictions)
+
+    st.write("### Total predicted sale price for the inherited properties")
+    st.write("The total predicted sale price for the four inherited properties has been calculated to be $635652.76")
+    display_inherited_total(inherited_total)
 
     st.write("---")
 
@@ -55,6 +60,14 @@ def display_inherited_predictions(inherited_predictions):
         'PredictedSalePrice': '${:,.2f}',
         'GarageArea': '{:.0f}',
         'TotalBsmtSF': '{:.0f}',
+    })
+    ,hide_index=True)
+
+def display_inherited_total(inherited_total):
+    st.dataframe(
+        inherited_total
+        .style.format({
+        'PredictedSalePrice': '${:,.2f}',
     })
     ,hide_index=True)
 
