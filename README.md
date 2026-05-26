@@ -11,7 +11,7 @@ The purpose of this project is to build a Data App with a Machine Learning User 
 
 ## Project Planning
 
-The project has been planned using Agile methodology, mapping business requirements in a user story based-format, through GitHub's project planner.
+The project has been planned using Agile methodology, mapping business requirements in a user story-based format, through GitHub's project planner.
 
 Please follow this link to the [project board](https://github.com/users/Rob-C-89/projects/18).
 
@@ -130,15 +130,15 @@ A machine learning regression model trained on the Ames housing dataset will acc
 
 * Our ideal outcome is to provide the client with a reliable, data-driven predicted Sale Price for each of her four inherited properties.
 
-* The model success metrics are:
-  * At least R² of 0.75 on both train and test sets
+* The model's success metrics are as follows:
+  * At least R² score of 0.75 on both train and test sets
   * The ML model is considered a failure if:
-    * R² falls below 0.75 on the test set, indicating the model does not generalise reliably to unseen Ames properties.
+    * R² score falls below 0.75 on the test set, indicating the model does not generalise reliably to unseen Ames properties.
 
 * The model output is defined as a predicted Sale Price in US dollars for any given property in Ames, Iowa. The client will input house attributes via an interactive interface (Streamlit dashboard) and receive a live predicted Sale Price for a single property
 * The four inherited properties will be predicted as a batch at the point of delivery.
 
-* Regarding heuristics, the client currntly has no approach to estimate Sale Price in Ames, Iowa.
+* Regarding heuristics, the client currently has no approach to estimate Sale Price in Ames, Iowa.
 
 * The training data to fit the model comes from the Ames Housing Dataset, which contains approximately 1,500 house sale records. The data will be inspected and cleaned, with feature engineering steps to prepare it fo the model.
 
@@ -172,8 +172,8 @@ This page will answer business requirement 2:
 * Display the predicted Sale Price for each inherited property
 * Display the total combined predicted Sale Price for all four properties
 * Interactive house Sale Price predictor:
-* Set of widgets inputs relating to house attributes. Each set of inputs is related to a given ML task to predict sale price.
-* Display predicted house sale price
+  * Set of widgets inputs relating to house attributes. Each set of inputs is related to a given ML task to predict sale price.
+  * Display predicted house sale price
 
 ### Page 4: Project Hypothesis and Validation
 
