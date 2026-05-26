@@ -193,7 +193,7 @@ This page will state the hypotheses and validation of the project:
 
 ## Unfixed Bugs
 
-* You will need to mention unfixed bugs and why they were not fixed. This section should include shortcomings of the frameworks or technologies used. Although time can be a big variable to consider, paucity of time and difficulty understanding implementation is not valid reason to leave bugs unfixed.
+* There are no known unfixed bugs in this project.
 
 ## Deployment
 
@@ -243,7 +243,7 @@ This page will state the hypotheses and validation of the project:
 
 * Code to display outliers was taken and modified from Feature Engine Unit 6 of Code Institute's Full Stack program
 
-* Claude AI by Anthropic was used for debugging and explanation of concepts.
+* [Claude AI](https://claude.ai/) by Anthropic was used for debugging and explanation of concepts.
   
 * [Stack Edit](https://stackedit.io/) used for markdown editing and table creation.
 * The following websites were particularly helpful:
@@ -251,4 +251,6 @@ This page will state the hypotheses and validation of the project:
   * [Medium](https://medium.com)
   * [Towards Data Science](https://towardsdatascience.com/)
 
-## Acknowledgements (optional)
+## Acknowledgements
+
+* Thanks to CI mentor Iuliia Konovalova for her guidance on this project.
