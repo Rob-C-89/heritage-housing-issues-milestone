@@ -5,6 +5,8 @@
 
 Heritage Housing Issues is a milestone project for the Predictive Analytics unit of Code Institute's Diploma in Full Stack Web Development.
 
+Please follow this link to see the live app deployed to Heroku: [Heritage Housing Issues](https://heritage-housing-issues-239a4c7258f3.herokuapp.com/)
+
 The purpose of this project is to build a Data App with a Machine Learning User Interface (UI) combining: (1) Python packages for Machine Learning, Data Analysis and Data Visualisations; and (2) Streamlit for fast Machine Learning prototyping. This project allows the user to perform critical data analysis to generate useful insights, and deliver data-driven recommendations.
 
 ## Project Planning
@@ -199,7 +201,7 @@ This page will state the hypotheses and validation of the project:
 
 ### Heroku
 
-* The App live link is: <https://YOUR_APP_NAME.herokuapp.com/>
+* The App live link is: [Heritage Housing Issues](https://heritage-housing-issues-239a4c7258f3.herokuapp.com/)
 * Set the .python-version Python version to a [Heroku-24](https://devcenter.heroku.com/articles/python-support#supported-runtimes) stack currently supported version.
 * The project was deployed to Heroku using the following steps.
 
