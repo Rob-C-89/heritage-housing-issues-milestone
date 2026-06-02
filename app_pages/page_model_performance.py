@@ -61,7 +61,7 @@ def page_model_performance_body():
     st.write(
         "### Predicted vs. Actual Sale Price  \n \n"
         "After training, we parsed 20 percent of the housing data to the model, withholding the sale price. \n \n"
-        "The graph below shows the model's predicted sale price against the actual sale price on this test set."
+        "The graph below shows the model's predicted sale price against the actual sale price on the train and test set."
     )
 
     st.image("outputs/plots/regression_evaluation.png")
