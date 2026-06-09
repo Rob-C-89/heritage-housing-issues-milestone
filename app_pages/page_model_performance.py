@@ -111,11 +111,17 @@ def page_model_performance_body():
     # Considerations and conclusions after the pipeline is trained (text)
     st.write("### Considerations and Conclusions")
     st.write(
-        "The Extra Trees Regressor was selected after comparing seven regression algorithms. \n \n"
-        "A second model was created, selecting only the top features identified in the correlation analysis."
-        "This model underperformed when compared to the first model, so it was discarded. \n \n"
-        "The selected model achieved an R2 score of 0.88 on the test set, exceeding the 0.75 target set "
-        "in the business requirements." \
+        "The Extra Trees Regressor was selected after comparing seven regression algorithms."
+    )
+    st.info(
+        "During the modelling phase, a second model was created. All but the top features identified in the correlation analysis "
+        "were dropped, before training the model solely on these 9 features. A Gradient Boosting Regressor model was returned. "
+        "However, this underperformed when compared to the first model, suggesting some variables, "
+        "which didn't appear important at first, did have some correlational value."
+    )
+    st.write(
+        "The selected Extra Trees Regressor model achieved an R2 score of 0.88 on the test set, exceeding the 0.75 target set "
+        "in the business requirements." 
         "We can conclude that the model has been successful in answering "
         "the predictive task it was intended for."
     )
@@ -131,6 +137,22 @@ def page_model_performance_body():
             * We can conclude that the model performs well in the context of Business Requirement 2, providing
             reliable sale price predictions for the inherited properties, and for any property in the Ames area.
             """
+    )
+
+    st.write("### Next Steps")
+    st.write(
+        "The model performs well in generalising to unseen data. "
+        "Next steps to improve performance might include:"
+    )
+    st.write(
+        "* **Collect more data** — Retraining the model on a larger dataset would "
+        "improve generalisation, particularly for higher value properties where the "
+        "current model shows the most deviation. \n\n"
+        "* **Outlier treatment** — Dropping or capping extreme Sale Price outliers "
+        "and retraining to assess whether this reduces the gap between MAE and RMSE. \n\n"
+        "* **Unsupervised learning** — Applying clustering to group properties into "
+        "market segments (budget, mid-range, luxury) could provide the client with "
+        "additional context for pricing decisions beyond a single predicted value. \n\n"
     )
 
 def display_pipeline_steps(pipeline):
