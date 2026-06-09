@@ -40,7 +40,15 @@ def page_correlation_study_body():
              "We see that the majority of properties sold for between 100,000 and 200,000."
              "We also see a number of outliers (houses with a particularly high or low "
              "sale price, compared to the rest of the dataset)."
-             )
+             "From the profile report generated in the data exploration process, and from this graph, we see that: \n"
+             "* The majority of properties sold for between 100,000 and 200,000. \n"
+             "* The mean value is $180,921. \n"
+             "* The minimum is $34,900. \n"
+             "* The maximum is $755,000. \n"
+             "* There are no missing or zero values. \n"
+             "* We also see a number of outliers (houses with a particularly high or low "
+             "sale price compared to the rest of the dataset)."
+    )
 
     fig, ax = plt.subplots(figsize=(10, 6))
     df.plot(kind='hist', y='SalePrice', bins=75, grid=True, title='Sale Price Distribution', ax=ax)
