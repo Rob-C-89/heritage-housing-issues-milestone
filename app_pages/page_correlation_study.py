@@ -59,9 +59,14 @@ def page_correlation_study_body():
     st.write("### Target Visualisation")
     st.write("It is helpful to visualise the target Sales Price, to better understand the nature "
              "and distribution of this variable.\n"
-             "We see that the majority of properties sold for between 100,000 and 200,000."
-             "We also see a number of outliers (houses with a particularly high or low "
-             "sale price, compared to the rest of the dataset)."
+             "From the profile report and this graph, we see that: \n"
+             "* The majority of properties sold for between 100,000 and 200,000. \n"
+             "* The mean value is $180,921. \n"
+             "* The minimum is $34,900. \n"
+             "* The maximum is $755,000. \n"
+             "* There are no missing or zero values. \n"
+             "* We also see a number of outliers (houses with a particularly high or low "
+             "sale price compared to the rest of the dataset)."
              )
 
     fig, ax = plt.subplots(figsize=(10, 6))
@@ -71,13 +76,13 @@ def page_correlation_study_body():
     # Correlation study overview
     st.write("### Correlation Summary")
     st.write(
-        f" A correlation study was conducted to investigate the relationship between house features "
-        f"and sale price.  \n"
-        f"* Two features, OverallQual and GrLivArea, show a strong correlation with SalesPrice.  \n"
-        f"* Seven features (YearBuilt, GarageArea, TotalBsmtSF, GarageYrBlt, 1stFlrSF, YearRemodAdd "
-        f"and OpenPorchSF) show a moderate correlation.  \n"
-        f"* There are a number of features showing a weak but potentially useful level of correlation "
-        f"for the purposes of Machine Learning."
+        " A correlation study was conducted to investigate the relationship between house features "
+        "and sale price.  \n"
+        "* Two features, OverallQual and GrLivArea, show a strong correlation with SalesPrice.  \n"
+        "* Seven features (YearBuilt, GarageArea, TotalBsmtSF, GarageYrBlt, 1stFlrSF, YearRemodAdd "
+        "and OpenPorchSF) show a moderate correlation.  \n"
+        "* There are a number of features showing a weak but potentially useful level of correlation "
+        "for the purposes of Machine Learning."
     )
 
     st.write("---")
