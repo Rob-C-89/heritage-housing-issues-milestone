@@ -28,6 +28,8 @@ def page_correlation_study_body():
              "inherited properties for sale."
              )
 
+    st.write("---")
+
     st.write("## Data Understanding")
     st.write("Before conducting the correlation study, the data was explored and visualised to gain an "
              "understanding of the dataset as a whole. This process gives insight into the nature and spread of the variables, "
@@ -72,6 +74,8 @@ def page_correlation_study_body():
     fig, ax = plt.subplots(figsize=(10, 6))
     df.plot(kind='hist', y='SalePrice', bins=75, grid=True, title='Sale Price Distribution', ax=ax)
     st.pyplot(fig)
+
+    st.write("---")
 
     # Correlation study overview
     st.write("### Correlation Summary")
