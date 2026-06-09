@@ -211,22 +211,22 @@ Manual testing has been carried out to ensure all dashboard features and busines
 
 | Test | Page | Action | Expected Result | Pass/Fail |
 | --- | --- | --- | --- | --- |
-| Navigation functional | All pages | Click each page in sidebar | Page loads without error | |
-| Project summary displays | Page 1 | Load page | Terms, dataset description and business requirements visible | |
-| Data inspection checkbox | Page 2 | Tick checkbox | Dataset dimensions and first 10 rows displayed | |
-| Correlation heatmap checkbox | Page 2 | Load page | Heatmap of top correlated features displayed | |
-| Scatter plots checkbox | Page 2 | Tick checkbox | Scatter plots of top features vs Sale Price displayed | |
-| Box plots checkbox | Page 2 | Tick checkbox | Box plots of categorical features vs Sale Price displayed | |
-| Inherited properties table | Page 3 | Load page | Table of four inherited properties with attributes displayed | |
-| Inherited predictions display | Page 3 | Load page | Predicted Sale Price shown for each inherited property | |
-| Total Sale Price display | Page 3 | Load page | Combined total Sale Price displayed | |
-| Interactive predictor | Page 3 | Input house attributes | Predicted Sale Price returned | |
-| Hypothesis 1 display | Page 4 | Load page | Hypothesis 1 statement and validation conclusions visible | |
-| Hypothesis 2 display | Page 4 | Load page | Hypothesis 2 statement and validation conclusions visible | |
-| Pipeline steps display | Page 5 | Load page | ML pipeline steps clearly listed | |
-| Feature importance plot | Page 5 | Load page | Feature importance bar chart displayed | |
-| Model performance table | Page 5 | Load page | R², MAE, MSE and RMSE shown for train and test sets | |
-| Predicted vs Actual plot | Page 5 | Load page | Scatter plots for train and test sets displayed | |
+| Navigation functional | All pages | Click each page in sidebar | Page loads without error | PASS |
+| Project summary displays | Page 1 | Load page | Terms, dataset description and business requirements visible | PASS |
+| Data inspection checkbox | Page 2 | Tick checkbox | Dataset dimensions and first 10 rows displayed | PASS |
+| Correlation heatmap checkbox | Page 2 | Load page | Heatmap of top correlated features displayed | PASS |
+| Scatter plots checkbox | Page 2 | Tick checkbox | Scatter plots of top features vs Sale Price displayed | PASS |
+| Box plots checkbox | Page 2 | Tick checkbox | Box plots of categorical features vs Sale Price displayed | PASS |
+| Inherited properties table | Page 3 | Load page | Table of four inherited properties with attributes displayed | PASS |
+| Inherited predictions display | Page 3 | Load page | Predicted Sale Price shown for each inherited property | PASS |
+| Total Sale Price display | Page 3 | Load page | Combined total Sale Price displayed | PASS |
+| Interactive predictor | Page 3 | Input house attributes | Predicted Sale Price returned | PASS |
+| Hypothesis 1 display | Page 4 | Load page | Hypothesis 1 statement and validation conclusions visible | PASS |
+| Hypothesis 2 display | Page 4 | Load page | Hypothesis 2 statement and validation conclusions visible | PASS |
+| Pipeline steps display | Page 5 | Load page | ML pipeline steps clearly listed | PASS |
+| Feature importance plot | Page 5 | Load page | Feature importance bar chart displayed | PASS |
+| Model performance table | Page 5 | Load page | R², MAE, MSE and RMSE shown for train and test sets | PASS |
+| Predicted vs Actual plot | Page 5 | Load page | Scatter plots for train and test sets displayed | PASS |
 
 ## Unfixed Bugs
 
