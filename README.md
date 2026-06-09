@@ -11,9 +11,21 @@ The purpose of this project is to build a Data App with a Machine Learning User 
 
 ## Project Planning
 
-The project has been planned using Agile methodology, mapping business requirements in a user story-based format, through GitHub's project planner.
+The project has been planned using Agile methodology, mapping business requirements in a user story-based format, through GitHub's project planner. Please follow this link to the [project board](https://github.com/users/Rob-C-89/projects/18).
 
-Please follow this link to the [project board](https://github.com/users/Rob-C-89/projects/18).
+The CRISP-DM methodology has been followed to inform and guide the project from beginning to deployment. It is an
+industry-standard framework for data science projects. The 6 core phases for the workflow are:
+
+1. Business understanding
+2. Data understanding
+3. Data perparation
+4. Modelling
+5. Evaluation
+6. Deployment
+
+The CRISP-DM (Cross-Industry Standard Process for Data Mining) workflow is flexible and highly iterative, and covers all steps necessary to produce scientific results. More can be read about it in this [Data Science PM](https://www.datascience-pm.com/crisp-dm-2/) article.
+
+The business requirements have been mapped using these phases in the ['Rationales to map the business requirements to the Data Visualisations and ML tasks'](#rationales-to-map-the-business-requirements-to-the-data-visualisations-and-ml-tasks) section of this ReadMe file. Please note, since BR1 does not require modelling, this phase has been skipped, whereas the rationale for BR2 has this step included.
 
 ## Dataset Content
 
@@ -70,7 +82,7 @@ Certain attributes are expected to show a measurable positive correlation with S
 
 **Validation Approach:**
 
-* Compute Pearson and Spearman correlation coefficients between all house attributes and Sale Price.
+* Compute Spearman correlation coefficients between all house attributes and Sale Price.
 * Produce a correlation heatmap to identify the strongest relationships at a glance.
 * Generate scatter plots of the highest-correlated continuous variables against Sale Price.
 * Hypothesis is confirmed if key attributes show a statistically significant correlation with Sale Price.
