@@ -22,7 +22,10 @@ def page_model_performance_body():
         "* The dataset was split 80/20 into train and test sets. \n \n"
         "* Numerical variables were imputed using the median value.  \n \n"
         "* Categorical variables were imputed using the mode value, and encoded with an Ordinal Encoder.  \n \n"
-        "* Feature selection was performed using SelectFromModel.  \n \n"
+        "* Feature selection was performed using SelectFromModel. The model was trained "
+        "on 7 out of the 9 features identified in the correlation study. These features "
+        "were selected by the Extra Trees Regressor based on their ability to reduce "
+        "prediction error. \n \n"
     )
 
     # Present ML pipeline steps (text, Ml piepline image)
@@ -57,12 +60,51 @@ def page_model_performance_body():
         The R2 score from the train set is 0.943, with a variance of 0.063 from the test set.
     """)
 
-    # Predicted vs Actual Sale Price plot (graph)
-    st.write(
-        "### Predicted vs. Actual Sale Price  \n \n"
-        "After training, we parsed 20 percent of the housing data to the model, withholding the sale price. \n \n"
-        "The graph below shows the model's predicted sale price against the actual sale price on the train and test set."
+    # Explanation of technical terms
+    st.info(
+        "**R² Score:** Measures how well the model explains the variance in sale price. "
+        "A score of 1.0 is a perfect prediction. A score of 0.88 means the model explains "
+        "88% of the variation in sale price. \n\n"
+
+        "**Mean Absolute Error (MAE):** The average difference between predicted and actual "
+        "sale prices. All errors are treated equally regardless of size. \n\n"
+        "**Mean Squared Error (MSE):** The average of squared differences between predicted "
+        "and actual sale prices. Large errors are penalised heavily due to squaring. \n\n"
+        "**Root Mean Squared Error (RMSE):** Similar to MAE but larger errors are penalised "
+        "more heavily. A higher RMSE relative to MAE indicates the model makes occasional "
+        "larger errors on certain properties."
     )
+    
+    st.write(
+        "In practical terms, the client can expect predictions to generally be within "
+        "\$18,000 - \$30,000 of the actual sale price for a typical Ames property. This range "
+        "provides a reliable basis for pricing decisions on the four inherited properties, "
+        "while acknowledging some uncertainty particularly at the higher end of the "
+        "price range."
+)
+
+
+    # Predicted vs Actual Sale Price plot (graph)
+    st.write("### Predicted vs. Actual Sale Price")
+    st.write(
+        f"After training, the model was evaluated by withholding 20% of the housing data "
+        "and comparing the model's predicted sale price against the known sale price. "
+        "This unseen data was not used during training, providing an honest assessment of "
+        "how well the model generalises to new properties. This is known as the test set. "
+    )
+
+    st.write(
+        "The scatter plots below show the predicted sale price against the actual sale price "
+        "for both the train and test sets. The red line represents a perfect prediction — "
+        "points closer to the red line indicate more accurate predictions. "
+    )
+    st.write(
+        "The train set plot shows the model performs well on data it was trained on, "
+        "with predictions closely following the red line across the full price range. "
+        "The test set plot shows the model generalises well to unseen data. Some deviation is visible "
+        "at higher sale prices, which is expected given the smaller number of high value "
+        "properties in the dataset (outliers)."
+)
 
     st.image("outputs/plots/regression_evaluation.png")
 
