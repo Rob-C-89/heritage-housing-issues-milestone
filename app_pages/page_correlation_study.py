@@ -6,13 +6,16 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import plotly.express as px
+from ydata_profiling import ProfileReport
+from streamlit_pandas_profiling import st_profile_report
 
 sns.set_style("whitegrid")
 
 def page_correlation_study_body():
 
     # Load data
-    df = pd.read_csv(f"outputs/datasets/cleaned/house_prices_encoded.csv")
+    df = pd.read_csv(f"outputs/datasets/collection/house_prices.csv")
+    df_encoded = pd.read_csv(f"outputs/datasets/cleaned/house_prices_encoded.csv")
     spearman_corr = df.corr(method='spearman', numeric_only=True)['SalePrice'].sort_values(key=abs, ascending=False)
     top_features = spearman_corr.index[:10]
 
@@ -24,14 +27,33 @@ def page_correlation_study_body():
              "her to make informed, evidence-based decisions about how to present and position her "
              "inherited properties for sale."
              )
+
+    st.write("## Data Understanding")
+    st.write("Before conducting the correlation study, the data was explored and visualised to gain an "
+             "understanding of the dataset as a whole. This process gives insight into the nature and spread of the variables, "
+             "the extent of missing values, any alerts concerning the data, and general familiarity with the dataset."
+            )   
     
+    st.write("### Data Inspection")
+    st.write("The first 10 rows of the dataset can be found below for illustration purposes.")
+
     # Checkbox: inspect data
     if st.checkbox("Inspect House Data"):
-        st.write(
-            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns. "
-            f"The first 10 rows can be found below for illustration purposes.")
-
+        st.write(f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns.")
         st.write(df.head(10))
+
+    # Profile Report
+    st.write("A Profile Report has been created, to visualise and help us examine the data. This report also includes "
+             "a profile overview, which is helpful in drawing attention to alerts such as missing values. \n"
+             "The full report can be viewed below by clicking on the checkbox. \n"
+             "In summary, the report contains 18 alerts, highlighting the presence of missing values and zero values. The "
+             "total missing cell count is 10.2%."
+            )
+    
+    # Checkbox: Profile Report
+    if st.checkbox("View Profile Report"):
+        pandas_report = ProfileReport(df=df, minimal=True)
+        st_profile_report(pandas_report)
 
     # Target visualisation
     st.write("### Target Visualisation")
@@ -72,7 +94,7 @@ def page_correlation_study_body():
             )
 
 
-    plot_heatmap(df, spearman_corr)
+    plot_heatmap(df_encoded, spearman_corr)
 
     st.write("---")
 
@@ -85,7 +107,7 @@ def page_correlation_study_body():
     )
 
     if st.checkbox("Display scatterplots"):
-        plot_scatter(df, top_features)
+        plot_scatter(df_encoded, top_features)
 
     st.write("---")
 
@@ -99,9 +121,9 @@ def page_correlation_study_body():
     if st.checkbox("Display box plots"):
         plot_box()
 
-def plot_heatmap(df, spearman_corr):
+def plot_heatmap(df_encoded, spearman_corr):
     top_features = spearman_corr.index[:10]
-    df_corr = df[top_features].corr(method='spearman')
+    df_corr = df_encoded[top_features].corr(method='spearman')
 
     mask = np.zeros_like(df_corr, dtype=np.bool_)
     mask[np.triu_indices_from(mask)] = True
@@ -111,10 +133,10 @@ def plot_heatmap(df, spearman_corr):
     ax.set_title('Top Feature Correlations with Sale Price')
     st.pyplot(fig)
 
-def plot_scatter(df, top_features):
+def plot_scatter(df_encoded, top_features):
     for feature in top_features[1:]:
         fig = px.scatter(
-            df,
+            df_encoded,
             x=feature,
             y='SalePrice',
             labels={'x': feature, 'y': 'SalePrice'},
