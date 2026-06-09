@@ -6,16 +6,13 @@ import matplotlib.pyplot as plt
 import seaborn as sns
 import pandas as pd
 import plotly.express as px
-from ydata_profiling import ProfileReport
-from streamlit_pandas_profiling import st_profile_report
 
 sns.set_style("whitegrid")
 
 def page_correlation_study_body():
 
     # Load data
-    df = pd.read_csv(f"outputs/datasets/collection/house_prices.csv")
-    df_encoded = pd.read_csv(f"outputs/datasets/cleaned/house_prices_encoded.csv")
+    df = pd.read_csv(f"outputs/datasets/cleaned/house_prices_encoded.csv")
     spearman_corr = df.corr(method='spearman', numeric_only=True)['SalePrice'].sort_values(key=abs, ascending=False)
     top_features = spearman_corr.index[:10]
 
@@ -27,66 +24,38 @@ def page_correlation_study_body():
              "her to make informed, evidence-based decisions about how to present and position her "
              "inherited properties for sale."
              )
-
-    st.write("---")
-
-    st.write("## Data Understanding")
-    st.write("Before conducting the correlation study, the data was explored and visualised to gain an "
-             "understanding of the dataset as a whole. This process gives insight into the nature and spread of the variables, "
-             "the extent of missing values, any alerts concerning the data, and general familiarity with the dataset."
-            )   
     
-    st.write("### Data Inspection")
-    st.write("The first 10 rows of the dataset can be found below for illustration purposes.")
-
     # Checkbox: inspect data
     if st.checkbox("Inspect House Data"):
-        st.write(f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns.")
-        st.write(df.head(10))
+        st.write(
+            f"* The dataset has {df.shape[0]} rows and {df.shape[1]} columns. "
+            f"The first 10 rows can be found below for illustration purposes.")
 
-    # Profile Report
-    st.write("A Profile Report has been created, to visualise and help us examine the data. This report also includes "
-             "a profile overview, which is helpful in drawing attention to alerts such as missing values. \n"
-             "The full report can be viewed below by clicking on the checkbox. \n"
-             "In summary, the report contains 18 alerts, highlighting the presence of missing values and zero values. The "
-             "total missing cell count is 10.2%."
-            )
-    
-    # Checkbox: Profile Report
-    if st.checkbox("View Profile Report"):
-        pandas_report = ProfileReport(df=df, minimal=True)
-        st_profile_report(pandas_report)
+        st.write(df.head(10))
 
     # Target visualisation
     st.write("### Target Visualisation")
     st.write("It is helpful to visualise the target Sales Price, to better understand the nature "
              "and distribution of this variable.\n"
-             "From the profile report and this graph, we see that: \n"
-             "* The majority of properties sold for between 100,000 and 200,000. \n"
-             "* The mean value is $180,921. \n"
-             "* The minimum is $34,900. \n"
-             "* The maximum is $755,000. \n"
-             "* There are no missing or zero values. \n"
-             "* We also see a number of outliers (houses with a particularly high or low "
-             "sale price compared to the rest of the dataset)."
+             "We see that the majority of properties sold for between 100,000 and 200,000."
+             "We also see a number of outliers (houses with a particularly high or low "
+             "sale price, compared to the rest of the dataset)."
              )
 
     fig, ax = plt.subplots(figsize=(10, 6))
     df.plot(kind='hist', y='SalePrice', bins=75, grid=True, title='Sale Price Distribution', ax=ax)
     st.pyplot(fig)
 
-    st.write("---")
-
     # Correlation study overview
     st.write("### Correlation Summary")
     st.write(
-        " A correlation study was conducted to investigate the relationship between house features "
-        "and sale price.  \n"
-        "* Two features, OverallQual and GrLivArea, show a strong correlation with SalesPrice.  \n"
-        "* Seven features (YearBuilt, GarageArea, TotalBsmtSF, GarageYrBlt, 1stFlrSF, YearRemodAdd "
-        "and OpenPorchSF) show a moderate correlation.  \n"
-        "* There are a number of features showing a weak but potentially useful level of correlation "
-        "for the purposes of Machine Learning."
+        f" A correlation study was conducted to investigate the relationship between house features "
+        f"and sale price.  \n"
+        f"* Two features, OverallQual and GrLivArea, show a strong correlation with SalesPrice.  \n"
+        f"* Seven features (YearBuilt, GarageArea, TotalBsmtSF, GarageYrBlt, 1stFlrSF, YearRemodAdd "
+        f"and OpenPorchSF) show a moderate correlation.  \n"
+        f"* There are a number of features showing a weak but potentially useful level of correlation "
+        f"for the purposes of Machine Learning."
     )
 
     st.write("---")
@@ -103,7 +72,7 @@ def page_correlation_study_body():
             )
 
 
-    plot_heatmap(df_encoded, spearman_corr)
+    plot_heatmap(df, spearman_corr)
 
     st.write("---")
 
@@ -116,7 +85,7 @@ def page_correlation_study_body():
     )
 
     if st.checkbox("Display scatterplots"):
-        plot_scatter(df_encoded, top_features)
+        plot_scatter(df, top_features)
 
     st.write("---")
 
@@ -130,9 +99,9 @@ def page_correlation_study_body():
     if st.checkbox("Display box plots"):
         plot_box()
 
-def plot_heatmap(df_encoded, spearman_corr):
+def plot_heatmap(df, spearman_corr):
     top_features = spearman_corr.index[:10]
-    df_corr = df_encoded[top_features].corr(method='spearman')
+    df_corr = df[top_features].corr(method='spearman')
 
     mask = np.zeros_like(df_corr, dtype=np.bool_)
     mask[np.triu_indices_from(mask)] = True
@@ -142,10 +111,10 @@ def plot_heatmap(df_encoded, spearman_corr):
     ax.set_title('Top Feature Correlations with Sale Price')
     st.pyplot(fig)
 
-def plot_scatter(df_encoded, top_features):
+def plot_scatter(df, top_features):
     for feature in top_features[1:]:
         fig = px.scatter(
-            df_encoded,
+            df,
             x=feature,
             y='SalePrice',
             labels={'x': feature, 'y': 'SalePrice'},
