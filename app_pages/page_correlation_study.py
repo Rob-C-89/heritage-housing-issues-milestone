@@ -91,6 +91,14 @@ def page_correlation_study_body():
         "relationship between the features and the sale price, helping to visualise the levels of correlation."
         "We can see a clear linear relationship with many of the features and sale price."
     )
+    st.info(
+        "* A distinct linear relationship can be seen between Sale Price and OverallQual, GrLivArea, TotalBsmtSF, "
+        "and 1stFlrSF. As the value increases on one axis, it increases on the other, suggesting significant correlation. \n"
+        "* YearBuilt, GarageArea, GarageYrBuilt and YearRemodAdd display a weaker linear relationship - there is a general "
+        "upward trend, but it is less distinct. \n"
+        "* OpenPorchSF shows a weak positive relationship, with a dense vertical cluster on the left of the plot. This suggests "
+        "it is a minor factor in determining sale price, and on the border of considering inclusion."
+    )
 
     if st.checkbox("Display scatterplots"):
         plot_scatter(df, top_features)
