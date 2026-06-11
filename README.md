@@ -244,6 +244,8 @@ The first house was taken from the data set and ran through the Sale Price Predi
 | SalePrice | 223,500 |
 | **Model predicted price** | **216,187.86** |
 
+![Screenshot](assets/images/manual_predictor_test.png)
+
 ## Unfixed Bugs
 
 * There are no known unfixed bugs in this project.
