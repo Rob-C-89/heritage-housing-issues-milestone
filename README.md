@@ -246,9 +246,9 @@ The first house was taken from the data set and ran through the Sale Price Predi
 
 ![Screenshot](assets/images/manual_predictor_test.png)
 
-## Unfixed Bugs
+## Bugs & Issues
 
-* There are no known unfixed bugs in this project.
+* When running the Jupyter notebooks, the plots sometimes showed and sometimes did not show, despite the code being sound. %matplotlib inline was included at the top of each file to fix this issue.
 
 ## Deployment
 
