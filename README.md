@@ -310,4 +310,4 @@ The first house was taken from the test set and ran through the Sale Price Predi
 
 ## Acknowledgements
 
-* Thanks to CI mentor Iuliia Konovalova for her guidance on this project.
+* Thanks to CI mentors Iuliia Konovalova and Marcel Mulders for their guidance on this project.
