@@ -228,6 +228,22 @@ Manual testing has been carried out to ensure all dashboard features and busines
 | Model performance table | Page 5 | Load page | R², MAE, MSE and RMSE shown for train and test sets | PASS |
 | Predicted vs Actual plot | Page 5 | Load page | Scatter plots for train and test sets displayed | PASS |
 
+## Manual testing of model performance
+
+The first house was taken from the data set and ran through the Sale Price Predictor in the dashboard. The result is displayed below. The model returned a predicted sale price of $216,187.86, against a real-life saleprice of $223,500. This is an error of 3.27%, which is very acceptable indeed.
+
+| Feature | Value |
+| --- | --- |
+| OverallQual | 7 |
+| GrLivArea | 1786 |
+| KitchenQual | Gd |
+| YearBuilt | 2001 |
+| GarageArea | 608 |
+| 1stFlrSF | 920 |
+| TotalBsmtSF | 920 |
+| SalePrice | 223,500 |
+| **Model predicted price** | **216,187.86** |
+
 ## Unfixed Bugs
 
 * There are no known unfixed bugs in this project.

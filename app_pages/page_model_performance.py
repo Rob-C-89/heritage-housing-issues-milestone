@@ -108,6 +108,29 @@ def page_model_performance_body():
 
     st.image("outputs/plots/regression_evaluation.png")
 
+    st.write("### Manual Testing of Model Performance")
+    st.write(
+        "To validate the model's performance in a real-world scenario, the first house "
+        "was taken from the dataset and run through the Sale Price Predictor. "
+        "The model returned a predicted sale price of \$216,187.86 against an actual "
+        "sale price of \$223,500. This is an error of \$7,312, or 3.27%, demonstrating strong predictive accuracy "
+        "for a typical Ames property."
+)
+    
+    st.markdown("""
+        | Feature | Value |
+        | --- | --- |
+        | OverallQual | 7 |
+        | GrLivArea | 1786 |
+        | KitchenQual | Gd |
+        | YearBuilt | 2001 |
+        | GarageArea | 608 |
+        | 1stFlrSF | 920 |
+        | TotalBsmtSF | 920 |
+        | SalePrice | 223,500 |
+        | **Model Predicted Price** | **216,187.86** |
+""")
+
     # Considerations and conclusions after the pipeline is trained (text)
     st.write("### Considerations and Conclusions")
     st.write(
