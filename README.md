@@ -230,7 +230,7 @@ Manual testing has been carried out to ensure all dashboard features and busines
 
 ## Manual testing of model performance
 
-The first house was taken from the data set and ran through the Sale Price Predictor in the dashboard. The result is displayed below. The model returned a predicted sale price of $216,187.86, against a real-life saleprice of $223,500. This is an error of 3.27%, which is very acceptable indeed.
+The first house was taken from the test set and ran through the Sale Price Predictor in the dashboard. The result is displayed below. The model returned a predicted sale price of $216,187.86, against a real-life saleprice of $223,500. This is an error of 3.27%, which is very acceptable indeed.
 
 | Feature | Value |
 | --- | --- |

@@ -127,7 +127,7 @@ def page_model_performance_body():
     st.write("### Manual Testing of Model Performance")
     st.write(
         "To validate the model's performance in a real-world scenario, the first house "
-        "was taken from the dataset and run through the Sale Price Predictor. "
+        "was taken from the test dataset and run through the Sale Price Predictor. "
         "The model returned a predicted sale price of \$216,187.86 against an actual "
         "sale price of \$223,500. This is an error of \$7,312, or 3.27%, demonstrating strong predictive accuracy "
         "for a typical Ames property."
