@@ -250,6 +250,8 @@ The first house was taken from the test set and ran through the Sale Price Predi
 
 * When running the Jupyter notebooks, the plots sometimes showed and sometimes did not show, despite the code being sound. %matplotlib inline was included at the top of each file to fix this issue.
 
+* On my computer, when using Google Chrome to view the Heroku website, the first scatter plot on the Correlation Study page loads properly and then the plot points disappear. I couldn't find a fix for this, although my research suggests this is a known issue with Chrome. When testing on Mozilla Firefox, this does not occur. I could have reverted to using a static image to bypass the issue; however, I elected to keep the interactive plots as they add a dynamic element to the dashboard. I recommend switching browser if encountering any similiar issues.
+
 ## Deployment
 
 ### Heroku
