@@ -72,12 +72,22 @@ def page_correlation_study_body():
     
     # Heatmap
     st.write("### Heatmap")
-    st.write("The heatmap below helps to visualise the correlation between the top "
-             "features and the sale price. The darker the colour, the stronger the "
-             "correlation. \n \n"
-             "It also illustrates the correlation between the features themselves,"
-             "which is useful for understanding the dataset as a comprehensive whole."
-            )
+    st.write(
+        "The heatmap below helps to visualise the correlation between the top "
+        "features and the sale price. \n\n"
+        "Each cell shows a correlation coefficient between -1 and 1. "
+        "A value closer to 1 indicates a strong positive relationship — "
+        "as one variable increases, so does the other. A value closer to zero indicates "
+        "litle to no relationship. \n\n"
+        "The bolder the colour, the stronger the correlation (as shown in the key to the "
+        "right of the graph). \n \n"
+        )
+    st.info(
+        "The first column on the left can be read to understand the correlation between the features "
+        "and Sale Price - this is the most significant column for understanding the "
+        "relationships between the features and the target variable. "
+        "The other columns show the relationship between the features themselves."
+        )
 
 
     plot_heatmap(df, spearman_corr)
