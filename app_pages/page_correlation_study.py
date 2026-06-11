@@ -107,6 +107,32 @@ def page_correlation_study_body():
     if st.checkbox("Display box plots"):
         plot_box()
 
+    st.write("---")
+
+    st.write('## Considerations and Conclusions')
+    st.write(
+        "**Considerations** \n\n"
+        "* The correlation study was conducted on the raw dataset prior to data cleaning "
+        "and feature engineering. Missing values were present and ignored in several variables at the "
+        "time of analysis, which may have slightly influenced the correlation coefficients. \n\n"
+        "* Spearman correlation was selected over Pearson as the dataset contains skewed "
+        "distributions and ordinal variables, for which Spearman is the more appropriate "
+        "method. \n\n"
+        "* Correlation measures linear relationships - non-linear "
+        "relationships between variables and Sale Price may not be fully captured "
+        "by the correlation coefficients alone. \n\n"
+    )
+    st.write(
+        "**Conclusions** \n\n"
+        "* The correlation study strongly supports the hypothesis that certain house attributes "
+        "show a measurable and statistically significant positive correlation with "
+        "Sale Price in Ames, Iowa. \n\n"
+        "* OverallQual and GrLivArea are the strongest predictors of Sale Price, "
+        "with Spearman correlation coefficients of 0.81 and 0.73 respectively. \n\n"
+        "* The findings from this study were used to inform the "
+        "modelling phase and develop the Sale Price predictor."
+    )
+
 def plot_heatmap(df, spearman_corr):
     top_features = spearman_corr.index[:10]
     df_corr = df[top_features].corr(method='spearman')
