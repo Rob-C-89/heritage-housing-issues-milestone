@@ -97,7 +97,7 @@ A machine learning regression model trained on the Ames housing dataset will acc
 * Select features based on findings from Hypothesis 1 correlation analysis.
 * Split the Ames dataset into training and test sets to evaluate model generalisation
 * Train and compare regression models.
-* Evaluate model performance using R² (target ≥ 0.75) and RMSE as primary metrics.
+* Evaluate model performance using R² (target ≥ 0.75) and mean absolute error (MAE) as primary metrics.
 * Apply the final model to predict Sale Price for the four inherited properties.
 * Hypothesis is confirmed if the model achieves the R² target on unseen test data, demonstrating reliable predictive power beyond a simple baseline mean estimate.
 
@@ -129,7 +129,7 @@ A machine learning regression model trained on the Ames housing dataset will acc
 | **Data Understanding** | Identify most correlated features from BR1 to inform feature selection. |
 | **Data Preparation** | Handle missing values, encode categorical variables, engineer features as required. |
 | **Modelling** | Train and compare regression models (e.g. Linear Regression, Random Forest, Gradient Boosting) |
-| **Evaluation** | Assess model performance using R² (target ≥ 0.75) and RMSE on unseen test data; confirm Hypothesis 2 |
+| **Evaluation** | Assess model performance using R² (target ≥ 0.75), MAE and RMSE on unseen test data; confirm Hypothesis 2 |
 | **Deployment** | Apply final model to predict Sale Price for the four inherited properties and deliver an interactive prediction interface |
 
 ## ML Business Case
@@ -161,18 +161,22 @@ A machine learning regression model trained on the Ames housing dataset will acc
 This page will provide a quick project summary:
 
 * Project Terms & Jargon
-* Describe Project Dataset, including a link to the dataset source
+* Link to the Read Me
 * State Business Requirements
+* Describe Project Dataset, including a link to the dataset source
 
 ### Page 2: Correlation Study and Visualisation
 
 This page will answer business requirement 1:
 
 * State BR1
-* Checkbox: data inspection on house attributes and sale value, (display the number of rows and columns in the data, and display the first ten rows of the data)
-* Display the most correlated variables to sale price and the conclusions
-* Checkbox: Heatmap of sale price and related variables.
-* Checkbox: Scatter plots of sale price and related variables.
+* Checkbox: data inspection on house attributes and sale value (display the number of rows and columns in the data, and display the first ten rows of the data)
+* Target visualisation, bar chat of sale price distribution
+* Written summary of correlation study
+* Heatmap of sale price and top features
+* Checkbox: scatter plots of sale price and top features
+* Checkbox: box plots of four categorical variables
+* Considerations and conclusions section
 
 ### Page 3: House Sale Price Predictor
 
@@ -180,9 +184,9 @@ This page will answer business requirement 2:
 
 * State BR2
 * Inherited properties predictions:
-* Display a table of the four inherited properties with their attributes
-* Display the predicted Sale Price for each inherited property
-* Display the total combined predicted Sale Price for all four properties
+  * Display a table of the four inherited properties with their attributes
+  * Display the predicted Sale Price for each inherited property
+  * Display the total combined predicted Sale Price for all four properties
 * Interactive house Sale Price predictor:
   * Set of widgets inputs relating to house attributes. Each set of inputs is related to a given ML task to predict sale price.
   * Display predicted house sale price
@@ -191,19 +195,23 @@ This page will answer business requirement 2:
 
 This page will state the hypotheses and validation of the project:
 
-* State hypothesis 1 and 2.
-* State validation approach for each hyothesis.
-* Confirmation status for each hypothesis.
+* State hypothesis 1 and 2
+* State validation approach for each hyothesis
+* Confirmation status for each hypothesis
 
 ### Page 5: ML Model Performance
 
-* Data preparation notes
-* Considerations and conclusions after the pipeline is trained
+* How the model was trained notes, including data preparation steps
 * Present ML pipeline steps
-* Feature importance
+* Feature importance summary and bar chart
 * Model performance: R² and RMSE on train and test sets
 * Predicted vs Actual Sale Price plot
-* Confirmation of whether R² ≥ 0.75 target was achieved
+* Manual testing of predictor
+* Note on alternative model (model 2 from Jupyter notebooks)
+* Considerations and conclusions after the pipeline is trained
+  * Confirmation of whether R² ≥ 0.75 target was achieved
+* Next steps to consider
+
 
 ## Testing
 
