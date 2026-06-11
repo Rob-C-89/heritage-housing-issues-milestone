@@ -16,17 +16,33 @@ def page_model_performance_body():
     )
     df = load_house_data()
 
-    # Data Preparation notes (text)
-    st.write("### Data Preparation")
+    # Model training notes
+    st.write("### How the Model Was Trained")
     st.info(
-        "* The dataset was split 80/20 into train and test sets. \n \n"
-        "* Numerical variables were imputed using the median value.  \n \n"
-        "* Categorical variables were imputed using the mode value, and encoded with an Ordinal Encoder.  \n \n"
-        "* Feature selection was performed using SelectFromModel. The model was trained "
-        "on 7 out of the 9 features identified in the correlation study. These features "
-        "were selected by the Extra Trees Regressor based on their ability to reduce "
-        "prediction error. \n \n"
-    )
+        "**Step 1 — Data Split** \n\n"
+        "The dataset of 1,460 Ames properties was split into a training set (80%) "
+        "and a test set (20%). The model was trained on the training set only, "
+        "with the test set held back to evaluate performance on unseen data. \n\n"
+        "**Step 2 — Data Cleaning** \n\n"
+        "Missing values in numerical variables were filled using the median value. "
+        "Missing values in categorical variables were filled using the most frequent "
+        "category (mode). \n\n"
+        "**Step 3 — Algorithm Selection** \n\n"
+        "Seven machine learning algorithms were evaluated using cross validation "
+        "to identify the best performing model. The Extra Trees Regressor returned "
+        "the highest R² score and was selected for further tuning. \n\n"
+        "**Step 4 — Hyperparameter Tuning** \n\n"
+        "The Extra Trees Regressor was fine-tuned using an extensive grid search "
+        "to find the optimal settings. Cross validation with 5 folds was used "
+        "to ensure reliable results. \n\n"
+        "**Step 5 — Feature Selection** \n\n"
+        "The model automatically selected the 7 most important features from the "
+        "dataset to train on: OverallQual, GrLivArea, KitchenQual, YearBuilt, "
+        "GarageArea, 1stFlrSF and TotalBsmtSF. \n\n"
+        "**Step 6 — Evaluation** \n\n"
+        "The trained model was evaluated against the held-back test set, achieving "
+        "an R² score of 0.88 — exceeding the 0.75 target set in the project rationale."
+)
 
     # Present ML pipeline steps (text, Ml piepline image)
     st.write("### Pipeline Steps")
@@ -131,17 +147,26 @@ def page_model_performance_body():
         | **Model Predicted Price** | **216,187.86** |
 """)
 
+    st.write(
+        "### Note on Alternative Model"
+    )
+    st.write(
+        "During the modelling phase, a second model was created. \n\n"
+        "This was to explore the results of a model informed by the data exploration, cleaning process, and correlation analysis." 
+        "All but the top features identified in the correlation analysis "
+        "were dropped, before training the model solely on these 9 features. A Gradient Boosting Regressor model was returned. \n\n"
+        "The model performed well and returned an R2 score of 0.816/0.817 on the train/test sets. This suggests very consistent "
+        "generalisation to unseen data, and would be perfectly acceptable given our target R2 score of 0.75. \n\n"
+        "However, this underperformed when compared to the first Extra Trees Regressor model, suggesting "
+        "that variables with weaker individual correlations still contributed collectively to predictive accuracy when included in the full feature set."
+    )
+
     # Considerations and conclusions after the pipeline is trained (text)
     st.write("### Considerations and Conclusions")
     st.write(
         "The Extra Trees Regressor was selected after comparing seven regression algorithms."
     )
-    st.info(
-        "During the modelling phase, a second model was created. All but the top features identified in the correlation analysis "
-        "were dropped, before training the model solely on these 9 features. A Gradient Boosting Regressor model was returned. "
-        "However, this underperformed when compared to the first model, suggesting some variables, "
-        "which didn't appear important at first, did have some correlational value."
-    )
+
     st.write(
         "The selected Extra Trees Regressor model achieved an R2 score of 0.88 on the test set, exceeding the 0.75 target set "
         "in the business requirements." 
